@@ -16,7 +16,8 @@ import { ToastContainer, toast } from "react-toastify";
 import Contact from "./pages/Contact";
 import Verify from "./pages/Verify";
 
-export const backendUrl = "http://localhost:4000";
+// export const backendUrl = "http://localhost:4000";
+export const backendUrl = import.meta.env.VITE_BACKEND_URL;
 const App = () => {
   return (
     <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
