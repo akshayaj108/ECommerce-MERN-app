@@ -7,7 +7,7 @@ import { backendUrl } from "../App";
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
   const [credential, setCredential] = useState({});
-  const { token, setToken, navigate } = useContext(ShopContext);
+  const { token, setToken, navigate, backendurl } = useContext(ShopContext);
 
   const handleInputChange = (event) => {
     setCredential((prevData) => ({
@@ -92,7 +92,7 @@ const Login = () => {
         required
       />
       <div className="w-full flex justify-between text-sm mt-[-8px]">
-        <p className="cursor-pointer text-base mt-2">Forgot Password</p>
+        {/* <p className="cursor-pointer text-base mt-2">Forgot Password</p> */}
         {currentState === "Login" ? (
           <p
             className="cursor-pointer text-base mt-2"
