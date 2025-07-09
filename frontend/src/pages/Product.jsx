@@ -36,23 +36,28 @@ const Product = () => {
   return productData ? (
     <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
       {/* Product Data */}
-      <div className="flex  gap-12 sm:gap-12 flex-col sm:flex-row">
-        {/* Product Image */}
-        <div className="flex-1 flex flex-col-reverse gap-3 sm:flex-row">
-          {/* others image preview */}
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
+      <div className="flex flex-col gap-6 sm:gap-12 sm:flex-row">
+        {/* Product Image Section */}
+        <div className="flex flex-col-reverse sm:flex-row gap-4 sm:gap-3">
+          {/* Thumbnail Images */}
+          <div className="flex w-full sm:w-[18.7%] gap-2 sm:gap-0 sm:flex-col overflow-x-auto sm:overflow-y-auto sm:justify-start">
             {productData.image.map((item, index) => (
               <img
-                src={item}
                 key={index}
+                src={item}
                 onClick={() => setFirstImage(item)}
-                className="w-24% sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer"
+                className="w-24 h-24 object-cover rounded cursor-pointer flex-shrink-0 sm:w-full sm:h-auto sm:mb-3"
               />
             ))}
           </div>
-          {/* First/click image preview */}
+
+          {/* Main Image */}
           <div className="w-full sm:w-[80%]">
-            <img src={firstImage} alt="" className="w-full h-auto" />
+            <img
+              src={firstImage}
+              alt="Selected Product"
+              className="w-full h-auto object-contain rounded"
+            />
           </div>
         </div>
         {/* Product details */}
