@@ -15,6 +15,7 @@ import "react-toastify/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 import Contact from "./pages/Contact";
 import Verify from "./pages/Verify";
+import ScrollToTop from "./utils/hooks/ScrollTop";
 
 //local development
 // export const backendUrl = "http://localhost:4000";
@@ -26,6 +27,7 @@ const App = () => {
       <ToastContainer />
       <NavBar />
       <SearchBar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
