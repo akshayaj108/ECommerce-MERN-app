@@ -140,7 +140,7 @@ const NavBar = () => {
                 onClick={() => setVisible(false)}
                 to="/collection"
               >
-                Coolection
+                Collection
               </NavLink>
               <NavLink
                 className="py-2 pl-6 border"
