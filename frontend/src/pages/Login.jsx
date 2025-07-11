@@ -7,6 +7,7 @@ import { backendUrl } from "../App";
 const Login = () => {
   const [currentState, setCurrentState] = useState("Login");
   const [credential, setCredential] = useState({});
+  const [isLoading, setLoading] = useState(false);
   const { token, setToken, navigate, backendurl } = useContext(ShopContext);
 
   const handleInputChange = (event) => {
@@ -17,6 +18,7 @@ const Login = () => {
   };
 
   const onSubmitHandler = async (event) => {
+    setLoading(true);
     event.preventDefault();
     try {
       if (currentState === "Sign Up") {
@@ -31,6 +33,7 @@ const Login = () => {
         } else {
           toast.error(response.data.message);
         }
+        setLoading(false);
       } else {
         const response = await axios.post(
           `${backendUrl}/api/v1/login`,
@@ -43,8 +46,10 @@ const Login = () => {
           toast.error(response.data.message);
         }
       }
+      setLoading(false);
     } catch (error) {
       console.log("register/login error", error);
+      setLoading(false);
       toast.error(error.message);
     }
   };
@@ -111,7 +116,9 @@ const Login = () => {
       </div>
       <button
         type="submit"
-        className="bg-black text-white font-light px-8 py-2 mt-4 "
+        className={`${
+          isLoading ? "bg-gray-300 text-base" : "bg-black text-white"
+        } font-light px-8 py-2 mt-4`}
       >
         {currentState === "Sign Up" ? "Sign Up" : "Sign In"}
       </button>
